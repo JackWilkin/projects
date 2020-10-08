@@ -29,6 +29,9 @@ class CommandCenter extends Component {
           value={this.state.value}
           onChange={this.handleChange}
         />
+        <p>{this.state.value}</p>
+        <button>Scooby Doo</button>
+        <button>Recipes</button>
       </form>
     );
   }
