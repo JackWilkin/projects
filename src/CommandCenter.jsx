@@ -1,11 +1,10 @@
 import React from 'react';
-import ReactDOM from "react-dom";
-import styled from "styled-components";
+import styled from 'styled-components';
 import Power from './Media/power-button.svg';
 import DVD from './Media/DVD.svg';
-import Knob from './Components/Knob.jsx';
-import BlinkingLight from './Components/BlinkingLight.jsx'; 
-import Icon from './Components/Icon.jsx';       
+import Knob from './Components/Knob';
+import BlinkingLight from './Components/BlinkingLight';
+import Icon from './Components/Icon';
 
 const Computer = styled.div`
   display: flex;
@@ -22,21 +21,6 @@ const Screen = styled.div`
   background-color: #0000eb69;
   flex-grow: 1;
   border: inset 5px gray;
-`;
-
-const ScoobyDoo = styled.a`
-  background: #17BDB9;
-  color: #6A3400;
-  font-family: "Scooby Doo";
-  padding: 4rem;
-  font-size: 3rem;
-  width: fit-content;
-`;
-
-const Recipes = styled.a`
-  padding: 4rem;
-  font-size: 3rem;
-  width: fit-content;
 `;
 
 const Buttons = styled.div`
@@ -85,38 +69,35 @@ const CDDrive = styled.div`
 `;
 
 export default function CommandCenter() {
-
-
-    return (
-      <Computer>
-        <Screen>
-          <Icon name="file" size={35} />
-          <Icon name="file" size={35} />
-          <Icon name="file" size={35} />
-          <Icon name="computer" size={35} />
-          <Icon name="recycle" size={35} />
-        </Screen>
-        <Buttons>
+  return (
+    <Computer>
+      <Screen>
+        <Icon name="file" size={35} />
+        <Icon name="file" size={35} />
+        <Icon name="file" size={35} />
+        <Icon name="computer" size={35} />
+        <Icon name="recycle" size={35} />
+      </Screen>
+      <Buttons>
         <Knob
-              size={50}
-              numTicks={25}
-              degrees={260}
-              min={1}
-              max={100}
-              value={30}
-            />
-          <CDDrive> <DVD/> </CDDrive>
-        
-          
-         
-          <PowerButton><Power/></PowerButton>
-          <BlinkingLight />
-  
-        </Buttons>
-      </Computer>
+          size={50}
+          numTicks={20}
+          degrees={180}
+          min={1}
+          max={100}
+          value={30}
+        />
+        <CDDrive>
+          {' '}
+          <DVD />
+          {' '}
+        </CDDrive>
 
-    );
-  }
+        <PowerButton><Power /></PowerButton>
+        <BlinkingLight />
 
-const wrapper = document.getElementById("container");
-wrapper ? ReactDOM.render(<CommandCenter />, wrapper) : false;
+      </Buttons>
+    </Computer>
+
+  );
+}

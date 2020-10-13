@@ -22,5 +22,11 @@ module.exports = {
     'react',
   ],
   rules: {
+    'import/no-named-as-default-member': 0,
+    'import/no-named-as-default': 0,
+    'no-unused-expressions': 0,
+    'react/prop-types': 0,
+    'no-mixed-operators': 0,
+    'no-plusplus': 0,
   },
 };
