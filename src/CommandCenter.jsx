@@ -1,10 +1,11 @@
-import React, { Component } from "react";
+import React from 'react';
 import ReactDOM from "react-dom";
 import styled from "styled-components";
 import Power from './Media/power-button.svg';
 import DVD from './Media/DVD.svg';
 import Knob from './Components/Knob.jsx';
-import BlinkingLight from './Components/BlinkingLight.jsx';
+import BlinkingLight from './Components/BlinkingLight.jsx'; 
+import Icon from './Components/Icon.jsx';       
 
 const Computer = styled.div`
   display: flex;
@@ -83,38 +84,17 @@ const CDDrive = styled.div`
   }
 `;
 
-class CommandCenter extends Component {
-  constructor() {
-    super();
+export default function CommandCenter() {
 
-    this.state = {
-      value: ""
-    };
 
-    this.handleChange = this.handleChange.bind(this);
-  }
-
-  handleChange(event) {
-    const { value } = event.target;
-    this.setState(() => {
-      return {
-        value
-      };
-    });
-  }
-
-  render() {
     return (
       <Computer>
-        {/* <input
-          type="text"
-          value={this.state.value}
-          onChange={this.handleChange}
-        />
-        <p>{this.state.value}</p> */}
         <Screen>
-        {/* <ScoobyDoo href={"https://scoobydoo.fandom.com/wiki/List_of_What%27s_New,_Scooby-Doo%3F_episodes"}>Scooby Doo</ScoobyDoo>
-        <Recipes href={"https://www.ourrecipes.me"}>Recipes</Recipes> */}
+          <Icon name="file" size={35} />
+          <Icon name="file" size={35} />
+          <Icon name="file" size={35} />
+          <Icon name="computer" size={35} />
+          <Icon name="recycle" size={35} />
         </Screen>
         <Buttons>
         <Knob
@@ -137,10 +117,6 @@ class CommandCenter extends Component {
 
     );
   }
-}
-
-export default CommandCenter;
 
 const wrapper = document.getElementById("container");
 wrapper ? ReactDOM.render(<CommandCenter />, wrapper) : false;
-
