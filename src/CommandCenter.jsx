@@ -1,10 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
-import Power from './Media/power-button.svg';
-import DVD from './Media/DVD.svg';
+import CDDrive from './Components/CDDrive';
 import Knob from './Components/Knob';
 import BlinkingLight from './Components/BlinkingLight';
+import DesktopIcon from './Components/DesktopIcon';
 import Icon from './Components/Icon';
+import Pdf from './Media/scooby-doo-rules.pdf';
 
 const Computer = styled.div`
   display: flex;
@@ -16,7 +17,6 @@ const Computer = styled.div`
 
 const Screen = styled.div`
   display: flex;
-  flex-direction: column;
   margin: 5%;
   background-color: #0000eb69;
   flex-grow: 1;
@@ -26,57 +26,19 @@ const Screen = styled.div`
 const Buttons = styled.div`
   display: flex;
   justify-content: center;
-  align-items: center;
   line-height: 1rem;
   margin: 0 5%;
-`;
-
-const PowerButton = styled.button`
-  background: none;
-  padding: 0.75rem;
-  border-radius: 2.5rem;
-  margin-left: 1rem;
-
-  &:focus {
-    outline: none;
-    border-color: white;
-  }
-
-  &:hover {
-    border-color: green;
-  }
-  svg {
-    height: 3rem;
-    width: auto;
-    fill: greenyellow;
-  }
-`;
-
-const CDDrive = styled.div`
-  border: inset;
-  background-color: darkgrey;
-  flex-grow: 1;
-  height: 2rem;
-  display: flex;
-  justify-content: center;
-  padding: 0.5rem;
-
-  svg {
-    height: inherit;
-    width: auto;
-    fill: gray;
-  }
 `;
 
 export default function CommandCenter() {
   return (
     <Computer>
       <Screen>
-        <Icon name="file" size={35} />
-        <Icon name="file" size={35} />
-        <Icon name="file" size={35} />
-        <Icon name="computer" size={35} />
-        <Icon name="recycle" size={35} />
+        <DesktopIcon label="github" image="computer" link={() => { window.location.href = 'https://github.com/JackWilkin'; }} />
+        <DesktopIcon label="Cookbook" image="file" link={() => { window.location.href = 'https://www.ourrecipes.me/'; }} />
+        <DesktopIcon label="Scooby Doo" image="file" link={() => { window.location.href = Pdf; }} />
+        <DesktopIcon label="fish" image="file" link={() => { window.location.href = 'https://jackwilkin.github.io/fish/'; }} />
+        <DesktopIcon label="recycle" image="recycle" />
       </Screen>
       <Buttons>
         <Knob
@@ -87,13 +49,8 @@ export default function CommandCenter() {
           max={100}
           value={30}
         />
-        <CDDrive>
-          {' '}
-          <DVD />
-          {' '}
-        </CDDrive>
-
-        <PowerButton><Power /></PowerButton>
+        <CDDrive />
+        <Icon image="power-button" fill="yellowgreen" size={35} />
         <BlinkingLight />
 
       </Buttons>

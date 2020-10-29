@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
+const tickColor = 'red';
 const Dial = styled.div`
     display: flex;
     position: relative;
@@ -21,7 +22,7 @@ const Tick = styled.div`
   transition: box-shadow 0.5s;
 
   &:active {
-    box-shadow: inset 0 0 5px 2px #509eec, 0 0 0 1px #369;
+    box-shadow: inset 0 0 5px 2px ${tickColor}, 0 0 0 1px #369;
   }
 `;
 
@@ -45,7 +46,7 @@ const Grip = styled.div`
   left: 50%;
   transform: translateX(-50%);
   border-radius: 50%;
-  background: #509eec;
+  background: ${tickColor};
   box-shadow: 0 0 3px 1px black;
 `;
 
@@ -66,7 +67,7 @@ const Container = styled.div`
         transition: box-shadow 0.5s;
     }
     .knob .ticks .tick.active {
-        box-shadow: inset 0 0 5px 2px #509eec, 0 0 0 1px #369;
+        box-shadow: inset 0 0 5px 2px ${tickColor}, 0 0 0 1px #369;
     }
 
 
@@ -130,7 +131,7 @@ export default function Knob(props) {
   const renderTicks = () => {
     const ticks = [];
     const incr = fullAngle / numTicks;
-    const tickSize = margin + props.size / 2;
+    const tickSize = margin + size / 2;
     for (let deg = startAngle; deg <= endAngle; deg += incr) {
       const tick = {
         deg,
