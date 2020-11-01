@@ -6,6 +6,7 @@ import BlinkingLight from './Components/BlinkingLight';
 import DesktopIcon from './Components/DesktopIcon';
 import Icon from './Components/Icon';
 import Pdf from './Media/scooby-doo-rules.pdf';
+import Folder from './Components/Folder';
 
 const Computer = styled.div`
   display: flex;
@@ -21,6 +22,7 @@ const Screen = styled.div`
   background-color: #0000eb69;
   flex-grow: 1;
   border: inset 5px gray;
+  flex-wrap: wrap;
 `;
 
 const Buttons = styled.div`
@@ -38,6 +40,7 @@ export default function CommandCenter() {
         <DesktopIcon label="Cookbook" image="file" link={() => { window.location.href = 'https://www.ourrecipes.me/'; }} />
         <DesktopIcon label="Scooby Doo" image="file" link={() => { window.location.href = Pdf; }} />
         <DesktopIcon label="fish" image="file" link={() => { window.location.href = 'https://jackwilkin.github.io/fish/'; }} />
+        <Folder label="raytracer" />
         <DesktopIcon label="recycle" image="recycle" />
       </Screen>
       <Buttons>
@@ -52,7 +55,6 @@ export default function CommandCenter() {
         <CDDrive />
         <Icon image="power-button" fill="yellowgreen" size={35} />
         <BlinkingLight />
-
       </Buttons>
     </Computer>
 

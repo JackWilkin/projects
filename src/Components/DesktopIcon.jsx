@@ -7,6 +7,7 @@ const Container = styled.div`
     flex-direction: column;
     padding: 1rem;
     font-family: monospace;
+    height: fit-content;
 
     &:hover {
         background-color: #00000057;
