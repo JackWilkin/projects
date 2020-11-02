@@ -6,7 +6,11 @@ import BlinkingLight from './Components/BlinkingLight';
 import DesktopIcon from './Components/DesktopIcon';
 import Icon from './Components/Icon';
 import Pdf from './Media/scooby-doo-rules.pdf';
+import raytracer from './Media/raytracer.png';
+import scenegraph from './Media/scenegraph.xml';
+import readme from './Media/README.txt';
 import Folder from './Components/Folder';
+import LabeledIcon from './Components/LabeledIcon';
 
 const Computer = styled.div`
   display: flex;
@@ -18,7 +22,10 @@ const Computer = styled.div`
 
 const Screen = styled.div`
   display: flex;
-  margin: 5%;
+  margin-top: 3rem;
+  margin-right: 5%;
+  margin-left: 5%;
+  margin-bottom: 3rem;
   background-color: #0000eb69;
   flex-grow: 1;
   border: inset 5px gray;
@@ -36,12 +43,17 @@ export default function CommandCenter() {
   return (
     <Computer>
       <Screen>
-        <DesktopIcon label="github" image="computer" link={() => { window.location.href = 'https://github.com/JackWilkin'; }} />
-        <DesktopIcon label="Cookbook" image="file" link={() => { window.location.href = 'https://www.ourrecipes.me/'; }} />
-        <DesktopIcon label="Scooby Doo" image="file" link={() => { window.location.href = Pdf; }} />
-        <DesktopIcon label="fish" image="file" link={() => { window.location.href = 'https://jackwilkin.github.io/fish/'; }} />
-        <Folder label="raytracer" />
-        <DesktopIcon label="recycle" image="recycle" />
+        <DesktopIcon label="github" color="white" icon="computer" onClick={() => { window.location.href = 'https://github.com/JackWilkin'; }} />
+        <DesktopIcon label="Cookbook" icon="file" onClick={() => { window.location.href = 'https://www.ourrecipes.me/'; }} />
+        <DesktopIcon label="Scooby Doo" icon="file" onClick={() => { window.location.href = Pdf; }} />
+        <DesktopIcon label="fish" icon="file" onClick={() => { window.location.href = 'https://jackwilkin.github.io/fish/'; }} />
+        <Folder label="raytracer">
+          <LabeledIcon label="README" icon="file" onClick={() => { window.open(readme, '_blank'); }} />
+          <LabeledIcon label="scenegraph.xml" icon="file" onClick={() => { window.open(scenegraph, '_blank'); }} />
+          <LabeledIcon label="raytrace.png" icon="file" onClick={() => { window.open(raytracer, '_blank'); }} />
+          <LabeledIcon label="opengl.mov" icon="file" />
+        </Folder>
+        <DesktopIcon label="recycle" icon="recycle" />
       </Screen>
       <Buttons>
         <Knob

@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-import DesktopIcon from './DesktopIcon';
+import LabeledIcon from './LabeledIcon';
 
 const Container = styled.div`
-
+  
 `;
 const Popup = styled.div`
   background-color: grey;
@@ -12,7 +12,7 @@ const Popup = styled.div`
   padding: 1rem;
 
   width: 75%;
-  height: 20rem;
+  height: inherit;
 
   position: fixed;
   top: 15%;
@@ -20,35 +20,40 @@ const Popup = styled.div`
 `;
 
 const Buttons = styled.div`
-    background-color: yellow;
+    background-color: darkblue;
     height: 1.5rem;
     width: 100%;
 `;
 
-const CloseButton = styled.div`
-    background-color: red;
+const CloseButton = styled.button`
+    background-color: yellow;
     height: inherit;
-    width: 1rem;
+    width: 1.5rem;
     float: right;
+    color: grey;
 `;
 
 const Contents = styled.div`
-    background-color: white;
+    background-color: lightgrey;
     flex-grow: 1;
 
+    display: flex;
+    flex-wrap: wrap;
 `;
 
 export default function Folder(props) {
-  const { label } = props;
+  const { label, children } = props;
   const [isOpen, setIsOpen] = React.useState(false);
   return (
     <Container>
-      <DesktopIcon link={() => setIsOpen(true)} label={label} image="folder" />
+      <LabeledIcon onClick={() => setIsOpen(true)} label={label} icon="folder" labelColor="white" />
       <Popup open={isOpen}>
         <Buttons>
-          <CloseButton onClick={() => setIsOpen(false)} />
+          <CloseButton onClick={() => setIsOpen(false)}>
+            X
+          </CloseButton>
         </Buttons>
-        <Contents />
+        <Contents>{children}</Contents>
       </Popup>
     </Container>
 

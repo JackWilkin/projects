@@ -1,32 +1,11 @@
 import React from 'react';
-import styled from 'styled-components';
-import Icon from './Icon';
-
-const Container = styled.div`
-    display: flex;
-    flex-direction: column;
-    padding: 1rem;
-    font-family: monospace;
-    height: fit-content;
-
-    &:hover {
-        background-color: #00000057;
-        height: fit-content;
-    }
-`;
-
-const Label = styled.div`
-    color: white;
-`;
+import LabeledIcon from './LabeledIcon';
 
 export default function DesktopIcon(props) {
   const {
-    label, image, fill, link,
+    label, fill, onClick, icon,
   } = props;
   return (
-    <Container onClick={link}>
-      <Icon image={image} fill={fill} size={35} />
-      <Label>{label}</Label>
-    </Container>
+    <LabeledIcon onClick={onClick} label={label} icon={icon} fill={fill} labelColor="white" />
   );
 }
