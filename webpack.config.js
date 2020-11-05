@@ -4,7 +4,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(pdf|png|xml|txt)$/,
+        test: /\.(pdf|png|xml|txt|jar|mov)$/,
         use: [
           {
             loader: 'file-loader',

@@ -1,9 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
+import Draggable from 'react-draggable';
 import LabeledIcon from './LabeledIcon';
 
 const Container = styled.div`
-  
+  display: flex;
 `;
 const Popup = styled.div`
   background-color: grey;
@@ -13,10 +14,7 @@ const Popup = styled.div`
 
   width: 75%;
   height: inherit;
-
-  position: fixed;
-  top: 15%;
-  left: 10%;
+  position: aboslute;
 `;
 
 const Buttons = styled.div`
@@ -40,21 +38,23 @@ const Contents = styled.div`
     display: flex;
     flex-wrap: wrap;
 `;
-
 export default function Folder(props) {
   const { label, children } = props;
   const [isOpen, setIsOpen] = React.useState(false);
+  const [activeDrags, setActiveDrags] = React.useState(0);
+
+  const onStart = () => {
+    setActiveDrags(activeDrags + 1);
+  };
+
+  const onStop = () => {
+    setActiveDrags(activeDrags - 1);
+  };
+
+  const dragHandlers = { onStart, onStop };
   return (
     <Container>
       <LabeledIcon onClick={() => setIsOpen(true)} label={label} icon="folder" labelColor="white" />
-      <Popup open={isOpen}>
-        <Buttons>
-          <CloseButton onClick={() => setIsOpen(false)}>
-            X
-          </CloseButton>
-        </Buttons>
-        <Contents>{children}</Contents>
-      </Popup>
     </Container>
 
   );
