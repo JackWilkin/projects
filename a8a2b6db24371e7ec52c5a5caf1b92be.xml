@@ -1,0 +1,241 @@
+<scene>
+    <instance name="sphere" path="models/sphere"></instance>
+    <instance name="box" path="models/box"></instance>
+
+    <image name="white" path="textures/white.png" />
+    <image name="checkerboard" path="textures/checkerboard.png" />
+    <image name="wood-floor" path="textures/wood-floor.jpg" />
+    <image name="metal" path="textures/metal.jpg" />
+    <image name="aluminum" path="textures/aluminum.jpg" />
+
+    <light>
+        <ambient>1 1 1</ambient>
+        <diffuse>0.8 0.8 0.8</diffuse>
+        <specular>0.8 0.8 0.8</specular>
+        <position>0 8 0</position>
+        <spotangle>180</spotangle>
+        <spotdirection>0 0 -1 </spotdirection>
+    </light>
+
+    <transform name="Floor">
+        <set>
+            <translate>0 -1.25 0</translate>
+            <scale>25 0.5 25</scale>
+        </set>
+        <object instanceof="box" texture = "checkerboard">
+            <material>
+                <ambient> 1 1 1 </ambient>
+                <diffuse> 1 1 1</diffuse>
+                <specular> 0.8 0.8 0.8</specular>
+                <shininess> 100 </shininess>
+                <absorption>0.5</absorption>
+                <reflection>0.5</reflection>
+                <transparency>0</transparency>
+            </material>
+        </object>
+    </transform>
+
+    <transform name="Ceiling">
+        <set>
+            <translate>0 9 0</translate>
+            <scale>12 0.5 16</scale>
+        </set>
+        <object instanceof="box" texture = "white">
+            <material>
+                <ambient> 1 1 1 </ambient>
+                <diffuse> 1 1 1</diffuse>
+                <specular> 0.8 0.8 0.8</specular>
+                <shininess> 100 </shininess>
+                <absorption>0.6</absorption>
+                <reflection>0.4</reflection>
+                <transparency>0</transparency>
+            </material>
+        </object>
+    </transform>
+
+    <transform name="Front Wall">
+        <set>
+            <translate>0 3.75 8</translate>
+            <scale>12 10 0.25</scale>
+        </set>
+        <object instanceof="box" texture = "aluminum">
+            <material>
+                <ambient> 0.8 0.8 0.8 </ambient>
+                <diffuse> 0.8 0.8 0.8</diffuse>
+                <specular> 0.8 0.8 0.8</specular>
+                <shininess> 100 </shininess>
+                <absorption>0.2</absorption>
+                <reflection>0.8</reflection>
+                <transparency>0</transparency>
+            </material>
+        </object>
+    </transform>
+
+    <transform name="Back Wall">
+        <set>
+            <translate>0 3.75 -8</translate>
+            <scale>12 10 0.25</scale>
+        </set>
+        <object instanceof="box" texture = "aluminum">
+            <material>
+                <ambient> 0.8 0.8 0.8 </ambient>
+                <diffuse> 0.8 0.8 0.8</diffuse>
+                <specular> 0.8 0.8 0.8</specular>
+                <shininess> 100 </shininess>
+                <absorption>0.2</absorption>
+                <reflection>0.8</reflection>
+                <transparency>0</transparency>
+            </material>
+        </object>
+    </transform>
+
+    <transform name="Left Wall">
+        <set>
+            <translate>-6 3.75 0</translate>
+            <scale>.25 10 16</scale>
+        </set>
+        <object instanceof="box" texture = "aluminum">
+            <material>
+                <ambient> 0.8 0.8 0.8 </ambient>
+                <diffuse> 0.8 0.8 0.8</diffuse>
+                <specular> 0.8 0.8 0.8</specular>
+                <shininess> 100 </shininess>
+                <absorption>0.2</absorption>
+                <reflection>0.8</reflection>
+                <transparency>0</transparency>
+            </material>
+        </object>
+    </transform>
+
+    <transform name="Right Wall">
+        <set>
+            <translate>6 3.75 0</translate>
+            <scale>.25 10 16</scale>
+        </set>
+        <object instanceof="box" texture = "aluminum">
+            <material>
+                <ambient> 0.8 0.8 0.8 </ambient>
+                <diffuse> 0.8 0.8 0.8</diffuse>
+                <specular> 0.8 0.8 0.8</specular>
+                <shininess> 100 </shininess>
+                <absorption>0.2</absorption>
+                <reflection>0.8</reflection>
+                <transparency>0</transparency>
+            </material>
+        </object>
+    </transform>
+
+    <group name="Orbs">
+        <!-- Row 1 of sphere -->
+        <transform name="Sphere1">
+            <set>
+                <translate>0 0 -3.333</translate>
+                <scale>1 1 1</scale>
+            </set>
+            <object instanceof="sphere" texture="metal">
+                <material>
+                    <ambient> 1.000 0.843 0.000 </ambient>
+                    <diffuse> 0.8 0.8 0.8</diffuse>
+                    <specular> 0.8 0.8 0.8</specular>
+                    <shininess> 100 </shininess>
+                    <absorption>0.6</absorption>
+                    <reflection>0.4</reflection>
+                    <transparency>0</transparency>
+                </material>
+            </object>
+        </transform>
+
+        <!-- Row 2 of spheres -->
+        <transform name="Sphere2">
+            <set>
+                <translate>2.5 0 -1.333</translate>
+                <scale>1 1 1</scale>
+            </set>
+            <object instanceof="sphere" texture="metal">
+                <material>
+                    <ambient> 0 0 0.545 </ambient>
+                    <diffuse> 0.8 0.8 0.8</diffuse>
+                    <specular> 0.8 0.8 0.8</specular>
+                    <shininess> 100 </shininess>
+                    <absorption>0.8</absorption>
+                    <reflection>0.2</reflection>
+                    <transparency>0</transparency>
+                </material>
+            </object>
+        </transform>
+
+        <transform name="Sphere3">
+            <set>
+                <translate>2.5 0 1.333</translate>
+                <scale>1 1 1</scale>
+            </set>
+            <object instanceof="sphere" texture="metal">
+                <material>
+                    <ambient> 0.863 0.078 0.235 </ambient>
+                    <diffuse> 0.8 0.8 0.8</diffuse>
+                    <specular> 0.8 0.8 0.8</specular>
+                    <shininess> 100 </shininess>
+                    <absorption>0.8</absorption>
+                    <reflection>0.2</reflection>
+                    <transparency>0</transparency>
+                </material>
+            </object>
+        </transform>
+
+        <!-- Row 3 of spheres -->
+        <transform name="Sphere4">
+            <set>
+                <translate>0 0 3.333</translate>
+                <scale>1 1 1</scale>
+            </set>
+            <object instanceof="sphere" texture="metal">
+                <material>
+                    <ambient> 0.294 0.000 0.510 </ambient>
+                    <diffuse> 0.8 0.8 0.8</diffuse>
+                    <specular> 0.8 0.8 0.8</specular>
+                    <shininess> 100 </shininess>
+                    <absorption>0.8</absorption>
+                    <reflection>0.2</reflection>
+                    <transparency>0</transparency>
+                </material>
+            </object>
+        </transform>
+
+        <transform name="Sphere5">
+            <set>
+                <translate>-2.5 0 1.333</translate>
+                <scale>1 1 1</scale>
+            </set>
+            <object instanceof="sphere" texture="metal">
+                <material>
+                    <ambient> 1.000 0.388 0.278 </ambient>
+                    <diffuse> 0.8 0.8 0.8</diffuse>
+                    <specular> 0.8 0.8 0.8</specular>
+                    <shininess> 100 </shininess>
+                    <absorption>0.8</absorption>
+                    <reflection>0.2</reflection>
+                    <transparency>0</transparency>
+                </material>
+            </object>
+        </transform>
+
+        <transform name="Sphere6">
+            <set>
+                <translate>-2.5 0 -1.333</translate>
+                <scale>1 1 1</scale>
+            </set>
+            <object instanceof="sphere" texture="metal">
+                <material>
+                    <ambient> 0.180 0.545 0.341 </ambient>
+                    <diffuse> 0.8 0.8 0.8</diffuse>
+                    <specular> 0.8 0.8 0.8</specular>
+                    <shininess> 100 </shininess>
+                    <absorption>0.8</absorption>
+                    <reflection>0.2</reflection>
+                    <transparency>0</transparency>
+                </material>
+            </object>
+        </transform>
+    </group>
+</scene>
+
