@@ -55,6 +55,19 @@ export default function Folder(props) {
   return (
     <Container>
       <LabeledIcon onClick={() => setIsOpen(true)} label={label} icon="folder" labelColor="white" />
+      <Draggable bounds="parent" {...dragHandlers}>
+        <Popup open={isOpen}>
+          <Buttons>
+            <CloseButton onClick={() => setIsOpen(false)}>
+              X
+            </CloseButton>
+          </Buttons>
+          <Contents>
+            {children}
+          </Contents>
+
+        </Popup>
+      </Draggable>
     </Container>
 
   );

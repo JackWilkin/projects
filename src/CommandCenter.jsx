@@ -9,7 +9,6 @@ import Icon from './Components/Icon';
 import Pdf from './Media/scooby-doo-rules.pdf';
 import raytracer from './Media/raytracer.png';
 import scenegraph from './Media/scenegraph.xml';
-import opengl from './Media/opengl.mov';
 import readme from './Media/README.txt';
 import Folder from './Components/Folder';
 import LabeledIcon from './Components/LabeledIcon';
@@ -108,7 +107,7 @@ export default function CommandCenter() {
               <LabeledIcon label="README" icon="file" onClick={() => { window.open(readme, '_blank'); }} />
               <LabeledIcon label="scenegraph.xml" icon="file" onClick={() => { window.open(scenegraph, '_blank'); }} />
               <LabeledIcon label="raytrace.png" icon="file" onClick={() => { window.open(raytracer, '_blank'); }} />
-              <LabeledIcon label="opengl.mov" icon="file" onClick={() => { window.open(opengl, '_blank'); }} />
+              {/* <LabeledIcon label="opengl.mov" icon="file" onClick={() => { window.open(opengl, '_blank'); }} /> */}
             </Contents>
 
           </Popup>
