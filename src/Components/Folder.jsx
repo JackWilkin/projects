@@ -1,11 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Draggable from 'react-draggable';
-import LabeledIcon from './LabeledIcon';
 
-const Container = styled.div`
-  display: flex;
-`;
 const Popup = styled.div`
   background-color: grey;
   display: ${(props) => (props.open ? 'flex' : 'none')};
@@ -14,7 +10,6 @@ const Popup = styled.div`
 
   width: 75%;
   height: inherit;
-  position: aboslute;
 `;
 
 const Buttons = styled.div`
@@ -39,8 +34,10 @@ const Contents = styled.div`
     flex-wrap: wrap;
 `;
 export default function Folder(props) {
-  const { label, children } = props;
-  const [isOpen, setIsOpen] = React.useState(false);
+  const {
+    label, children, openProject, setOpenProject,
+  } = props;
+
   const [activeDrags, setActiveDrags] = React.useState(0);
 
   const onStart = () => {
@@ -51,24 +48,21 @@ export default function Folder(props) {
     setActiveDrags(activeDrags - 1);
   };
 
-  const dragHandlers = { onStart, onStop };
   return (
-    <Container>
-      <LabeledIcon onClick={() => setIsOpen(true)} label={label} icon="folder" labelColor="white" />
-      <Draggable bounds="parent" {...dragHandlers}>
-        <Popup open={isOpen}>
-          <Buttons>
-            <CloseButton onClick={() => setIsOpen(false)}>
-              X
-            </CloseButton>
-          </Buttons>
-          <Contents>
-            {children}
-          </Contents>
 
-        </Popup>
-      </Draggable>
-    </Container>
+    <Draggable bounds="parent" onStart={onStart} onStop={onStop}>
+      <Popup open={openProject === label}>
+        <Buttons>
+          <CloseButton onClick={() => setOpenProject('')}>
+            X
+          </CloseButton>
+        </Buttons>
+        <Contents>
+          {children}
+        </Contents>
+
+      </Popup>
+    </Draggable>
 
   );
 }
