@@ -1,5 +1,4 @@
 import React from 'react';
-import styled from 'styled-components';
 import Folder from '../Components/Folder';
 import LabeledIcon from '../Components/LabeledIcon';
 import raytrace from '../Media/raytracer.png';
