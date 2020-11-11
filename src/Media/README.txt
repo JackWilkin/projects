@@ -13,6 +13,7 @@ R:					Ray-trace and save as "out.png"
 
 
 Files in this folder:
+- "RayTracer.jar" executable jar with the above controls
 - "scenegraph.xml" xml tree of the example scene read by the program.
 - "opengl.mov" depicts the OpenGL rendering of the example scene in 3D. 
 - "raytrace.png" is the example scene rendering, which shows all aspects of the ray tracer's calculations (listed below):

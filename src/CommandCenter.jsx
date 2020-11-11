@@ -5,7 +5,7 @@ import Knob from './Components/Knob';
 import BlinkingLight from './Components/BlinkingLight';
 import DesktopIcon from './Components/DesktopIcon';
 import Icon from './Components/Icon';
-import Pdf from './Media/scooby-doo-rules.pdf';
+import ScoobyDoo from './Desktop/ScoobyDoo';
 import RayTracer from './Desktop/RayTracer';
 
 const Computer = styled.div`
@@ -44,11 +44,14 @@ export default function CommandCenter() {
       <Screen>
         <DesktopIcon label="recycle" icon="recycle" />
         <DesktopIcon label="github" color="white" icon="computer" onClick={() => { window.location.href = 'https://github.com/JackWilkin'; }} />
+
         <DesktopIcon label="Cookbook" icon="file" onClick={() => { window.location.href = 'https://www.ourrecipes.me/'; }} />
-        <DesktopIcon label="Scooby Doo" icon="file" onClick={() => { window.location.href = Pdf; }} />
         <DesktopIcon label="fish" icon="file" onClick={() => { window.location.href = 'https://jackwilkin.github.io/fish/'; }} />
-        <DesktopIcon label="raytracer" icon="folder" onClick={() => setOpenProject('raytracer')} />
+
+        <DesktopIcon label="Scooby Doo" icon="folder" onClick={() => setOpenProject('Scooby Dooby Data (DnD)')} />
+        <DesktopIcon label="Ray Tracer" icon="folder" onClick={() => setOpenProject('raytracer')} />
         <RayTracer openProject={openProject} setOpenProject={setOpenProject} />
+        <ScoobyDoo openProject={openProject} setOpenProject={setOpenProject} />
       </Screen>
       <Buttons>
         <Knob

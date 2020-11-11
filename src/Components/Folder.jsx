@@ -16,6 +16,10 @@ const Buttons = styled.div`
     background-color: darkblue;
     height: 1.5rem;
     width: 100%;
+    color: white;
+    font-family: monospace;
+    padding-left: 0.25rem;
+    padding-top: 0.25rem;
 `;
 
 const CloseButton = styled.button`
@@ -53,6 +57,7 @@ export default function Folder(props) {
     <Draggable bounds="parent" onStart={onStart} onStop={onStop}>
       <Popup open={openProject === label}>
         <Buttons>
+          {label}
           <CloseButton onClick={() => setOpenProject('')}>
             X
           </CloseButton>
